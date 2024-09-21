@@ -38,18 +38,18 @@
                                 </div>
                             
                                 <div class="form-group">
-                                    <label>Nama Pendaftar</label>
-                                    <input type="text" class="form-control" name="registrasi_nama" placeholder="Nama Pendaftar" aria-describedby="Nama Pendaftar" value="<?=$datas!=false?$datas->registrasi_nama:''?>">
+                                    <label>Identitas Pendaftar (Nomor KTP)</label>
+                                    <input type="text" class="form-control" name="registrasi_identitas" placeholder="Identitas Pendaftar (Nomor KTP)" aria-describedby="Identitas Pendaftar (Nomor KTP)" value="<?=$datas!=false?$datas->registrasi_identitas:''?>">
                                 </div>
                             
                                 <div class="form-group">
-                                    <label>Nomor Identitas (KTP)</label>
-                                    <input type="text" class="form-control" name="registrasi_identitas" placeholder="Nomor Identitas (KTP)" aria-describedby="Nomor Identitas (KTP)" value="<?=$datas!=false?$datas->registrasi_identitas:''?>">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" name="registrasi_nama" placeholder="Nama" aria-describedby="Nama" value="<?=$datas!=false?$datas->registrasi_nama:''?>">
                                 </div>
                             
                                 <div class="form-group">
                                     <label>Umur</label>
-                                    <input type="text" class="form-control" name="registrasi_umur" placeholder="Umur" aria-describedby="Umur" value="<?=$datas!=false?$datas->registrasi_umur:''?>">
+                                    <input type="text" class="form-control" name="registrasi_tgl_lahir" placeholder="Umur" aria-describedby="Umur" value="<?=$datas!=false?$datas->registrasi_tgl_lahir:''?>">
                                 </div>
                             
                                 <div class="form-group">
@@ -58,13 +58,13 @@
                                 </div>
                             
                                 <div class="form-group">
-                                    <label>Upload</label>
-                                    <input type="text" class="form-control" name="registrasi_file" placeholder="Upload" aria-describedby="Upload" value="<?=$datas!=false?$datas->registrasi_file:''?>">
+                                    <label>Jenis Perkara</label>
+                                    <input type="text" class="form-control" name="registrasi_jenis_perkara" placeholder="Jenis Perkara" aria-describedby="Jenis Perkara" value="<?=$datas!=false?$datas->registrasi_jenis_perkara:''?>">
                                 </div>
                             
                                 <div class="form-group">
-                                    <label>Jenis Perkara yang ingin didaftarkan</label>
-                                    <input type="text" class="form-control" name="registrasi_jenis_perkara" placeholder="Jenis Perkara yang ingin didaftarkan" aria-describedby="Jenis Perkara yang ingin didaftarkan" value="<?=$datas!=false?$datas->registrasi_jenis_perkara:''?>">
+                                    <label>Upload Foto Identitas</label>
+                                    <input type="text" class="form-control" name="registrasi_file" placeholder="Upload Foto Identitas" aria-describedby="Upload Foto Identitas" value="<?=$datas!=false?$datas->registrasi_file:''?>">
                                 </div>
                             
                                 </div>

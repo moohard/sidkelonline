@@ -40,12 +40,12 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Alamat</th>
-<th>Nama Pendaftar</th>
-<th>Nomor Identitas (KTP)</th>
+<th>Identitas Pendaftar (Nomor KTP)</th>
+<th>Nama</th>
 <th>Umur</th>
 <th>Pekerjaan</th>
-<th>Upload</th>
-<th>Jenis Perkara yang ingin didaftarkan</th>
+<th>Jenis Perkara</th>
+<th>Upload Foto Identitas</th>
 
                                                         <th>Action</th>
                                                     </tr>
@@ -61,7 +61,7 @@
                                                 ?>
                                                     <tr>
                                                         <th scope="row"><?=$i++?></th>
-                                                        <td><?=$row->registrasi_alamat?></td><td><?=$row->registrasi_nama?></td><td><?=$row->registrasi_identitas?></td><td><?=$row->registrasi_umur?></td><td><?=$row->registrasi_pekerjaan?></td><td><?=$row->registrasi_file?></td><td><?=$row->registrasi_jenis_perkara?></td>
+                                                        <td><?=$row->registrasi_alamat?></td><td><?=$row->registrasi_identitas?></td><td><?=$row->registrasi_nama?></td><td><?=$row->registrasi_tgl_lahir?></td><td><?=$row->registrasi_pekerjaan?></td><td><?=$row->registrasi_jenis_perkara?></td><td><?=$row->registrasi_file?></td>
                                                         <td>
                                                         <a href="<?=$update_url.$key?>" title="Update" class="btn btn-sm btn-outline-primary btn-elevate btn-circle btn-icon">
                                                             <span>
