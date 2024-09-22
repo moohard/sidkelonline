@@ -21,10 +21,10 @@
 
             <!--begin::Modal body-->
             <div class="modal-body py-lg-10 px-lg-10">
-                <form action="<?= $simpan_url ?>" type='POST' enctype="multipart/form-data" id=form_registrasi>
+                <form action="<?= $simpan_url ?>" method='POST' enctype="multipart/form-data" id=form_registrasi>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Alamat</label>
-                        <select class="form-select" data-control="select2" data-dropdown-parent="#kt_modal_create_app"
+                        <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_create_app"
                             data-placeholder="Pilih Kelurahan / Desa" data-allow-clear="true" name="registrasi_alamat">
                             <option value=""></option>
                             <?php
@@ -35,35 +35,84 @@
                         </select>
                     </div>
                     <div class="fv-row mb-5">
+                        <label class="required form-label">Jenis Perkara</label>
+                        <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_create_app"
+                            data-placeholder="Pilih Jenis Perkara" data-allow-clear="true"
+                            name="registrasi_jenis_perkara">
+                            <option value=""></option>
+                            <?php
+                            foreach ($jenis_perkara as $r):
+                                echo '<option value="' . $r . '">' . $r . '</option>';
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                    <div class="fv-row mb-5">
                         <label class="required form-label">Identitas Pendaftar (Nomor KTP)</label>
-                        <input type="text" class="form-control" name="registrasi_identitas"
+                        <input type="text" class="form-control inputan" name="registrasi_identitas"
                             placeholder="Identitas Pendaftar (Nomor KTP)"
-                            aria-describedby="Identitas Pendaftar (Nomor KTP)" value="">
+                            aria-describedby="Identitas Pendaftar (Nomor KTP)" value="1234561234561234">
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Nama</label>
-                        <input type="text" class="form-control" name="registrasi_nama" placeholder="Nama"
-                            aria-describedby="Nama" value="">
+                        <input type="text" class="form-control inputan" name="registrasi_nama" placeholder="Nama"
+                            aria-describedby="Nama" value="muhar">
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Tanggal Lahir</label>
-                        <input type="text" class="form-control" name="registrasi_tgl_lahir" placeholder="Tanggal Lahir"
-                            aria-describedby="Tanggal Lahir" value="" readonly>
+                        <input type="text" class="form-control inputan" name="registrasi_tgl_lahir" placeholder="Tanggal Lahir"
+                            aria-describedby="Tanggal Lahir" value="1991-07-13" readonly>
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Pekerjaan</label>
-                        <input type="text" class="form-control" name="registrasi_pekerjaan" placeholder="Pekerjaan"
-                            aria-describedby="Pekerjaan" value="">
+                        <input type="text" class="form-control inputan" name="registrasi_pekerjaan" placeholder="Pekerjaan"
+                            aria-describedby="Pekerjaan" value="PNS">
                     </div>
                     <div class="fv-row mb-5">
-                        <label class="required form-label">Jenis Perkara</label>
-                        <input type="text" class="form-control" name="registrasi_jenis_perkara"
-                            placeholder="Jenis Perkara" aria-describedby="Jenis Perkara" value="">
-                    </div>
-                    <div class="fv-row mb-5">
-                        <label class="required form-label">Upload Foto Identitas</label>
-                        <input type="file" class="form-control" name="registrasi_file"
-                            placeholder="Upload Foto Identitas" aria-describedby="Upload Foto Identitas" value="">
+                        <!--begin::Label-->
+                        <label class="required d-block fw-semibold fs-6 mb-5">Upload Swafoto (Upload KTP beserta
+                            pendaftar)</label>
+                        <!--end::Label-->
+
+                        <!--begin::Image input-->
+                        <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
+                            style="background-image: url('assets/media/svg/avatars/blank.svg')">
+                            <!--begin::Preview existing avatar-->
+                            <div class="image-input-wrapper w-125px h-125px"></div>
+                            <!--end::Preview existing avatar-->
+
+                            <!--begin::Label-->
+                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Ganti Foto">
+                                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span
+                                        class="path2"></span></i>
+
+                                <!--begin::Inputs-->
+                                <input type="file" name="registrasi_file" accept=".png, .jpg, .jpeg" />
+                                <input type="hidden" name="registrasi_file_remove" />
+                                <!--end::Inputs-->
+                            </label>
+                            <!--end::Label-->
+
+                            <!--begin::Cancel-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Hapus Foto">
+                                <i class="ki-outline ki-cross fs-3"></i>
+                            </span>
+                            <!--end::Cancel-->
+
+                            <!--begin::Remove-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                <i class="ki-outline ki-cross fs-3"></i>
+                            </span>
+                            <!--end::Remove-->
+                        </div>
+                        <!--end::Image input-->
+
+                        <!--begin::Hint-->
+                        <div class="form-text">File yang diperbolehkan: png, jpg, jpeg.</div>
+                        <!--end::Hint-->
                     </div>
                 </form>
             </div>

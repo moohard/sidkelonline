@@ -57,7 +57,19 @@ var KTCreateApp = (function () {
         registrasi_jenis_perkara: {
           validators: {
             notEmpty: {
-              message: "Silakan Diisi!!"
+              message: "Silakan Dipilih!!"
+            }
+          }
+        },
+        registrasi_file: {
+          validators: {
+            notEmpty: {
+              message: "Silakan Pilih Foto !!"
+            },
+            file: {
+              extension: "jpg,jpeg,png",
+              type: "image/jpeg,image/png",
+              message: "File yang dipilih tidak valid!!"
             }
           }
         }
@@ -72,36 +84,60 @@ var KTCreateApp = (function () {
         })
       }
     });
-    $(form.querySelector('[name="registrasi_alamat"]')).on("change", function () {
-      validator.revalidateField("registrasi_alamat");
-    });
+    $(form.querySelector('[name="registrasi_alamat"]')).on(
+      "change",
+      function () {
+        validator.revalidateField("registrasi_alamat");
+      }
+    );
+    $(form.querySelector('[name="registrasi_jenis_perkara"]')).on(
+      "change",
+      function () {
+        validator.revalidateField("registrasi_jenis_perkara");
+      }
+    );
     // Submit button handler
     const submitButton = document.getElementById("btn_register");
     submitButton.addEventListener("click", function (e) {
       // Prevent default button action
       e.preventDefault();
       // Validate form before submit
+
       if (validator) {
         validator.validate().then(function (status) {
           if (status == "Valid") {
             submitButton.setAttribute("data-kt-indicator", "on");
-
             submitButton.disabled = true;
-            setTimeout(function () {
-              submitButton.removeAttribute("data-kt-indicator");
-
-              submitButton.disabled = false;
-
-              Swal.fire({
-                text: "Form has been successfully submitted!",
-                icon: "success",
-                buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
-                customClass: {
-                  confirmButton: "btn btn-primary"
-                }
-              });
-            }, 2000);
+            const data = new FormData(form);
+            $.ajax({
+              type: form.method,
+              url: form.action,
+              data: data,
+              processData: false,
+              contentType: false,
+              cache: false,
+              success: (data) => {
+                submitButton.removeAttribute("data-kt-indicator");
+                submitButton.disabled = false;
+                const eR = JSON.parse(data);
+                Swal.fire({
+                  text: eR.message,
+                  icon: eR.status,
+                  buttonsStyling: false,
+                  confirmButtonText: "Ok, Lanjutkan!!",
+                  customClass: {
+                    confirmButton:
+                      eR.status !== "error"
+                        ? "btn btn-primary"
+                        : "btn btn-danger"
+                  }
+                }).then(function () {
+                  if (eR.status !== "error") {
+                    window.location = "/";
+                  }
+                });
+              }
+            });
           }
         });
       }

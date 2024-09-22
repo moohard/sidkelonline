@@ -32,4 +32,12 @@ class Model_d_registrasi extends Model_Master
         else
             return false;
     }
+    function get_enum_values($table, $field)
+    {
+        $type = ($this->db->query("SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'"))->row()->Type;        
+        
+        preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
+        $enum = explode("','", $matches[1]);
+        return $enum;
+    }
 }

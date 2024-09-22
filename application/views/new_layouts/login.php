@@ -1,140 +1,139 @@
 <!DOCTYPE html>
-
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 8
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 
-<!-- begin::Head -->
-
 <head>
-	<base href="../../../">
+	<base href="../../../" />
+	<title>Pendaftaran Sidang Keliling Online</title>
 	<meta charset="utf-8" />
-	<title><?= base_url(); ?> | Login</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!--begin::Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
-
-	<!--end::Fonts -->
-
-	<!--begin::Page Custom Styles(used by this page) -->
-	<link href="<?= base_url(); ?>assets/css/pages/login/login-3.css" rel="stylesheet" type="text/css" />
-
-	<!--end::Page Custom Styles -->
-
-	<!--begin::Global Theme Styles(used by all pages) -->
-	<link href="<?= base_url(); ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-
-	<!--end::Global Theme Styles -->
-
-	<!--begin::Layout Skins(used by all pages) -->
-	<link href="<?= base_url(); ?>assets/css/skins/header/base/light.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/aside/dark.css" rel="stylesheet" type="text/css" />
-
-	<!--end::Layout Skins -->
-	<link rel="shortcut icon" href="<?= base_url(); ?>assets/media/logos/favicon.ico" />
+	<meta name="description" content="Aplikasi Pendaftaran Sidang Keliling Online" />
+	<meta name="keywords" content="Sidang Keliling Online" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="application" />
+	<meta property="og:title" content="Pendaftaran Sidang Keliling Online" />
+	<meta property="og:url" content="https://pa-penajam.go.id" />
+	<meta property="og:site_name" content="Sidang Keliling Online Oleh Pengadilan Agama Penajam" />
+	<link rel="shortcut icon" href="<?= base_url() ?>assets/media/logos/favicon.ico" />
+	<!--begin::Fonts(mandatory for all pages)-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+	<!--end::Fonts-->
+	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+	<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 </head>
+<!--end::Head-->
+<!--begin::Body-->
 
-<!-- end::Head -->
-
-<!-- begin::Body -->
-
-<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
-
-	<!-- begin:: Page -->
-	<div class="kt-grid kt-grid--ver kt-grid--root">
-		<div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
-			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(<?= base_url(); ?>assets/media//bg/bg-3.jpg);">
-				<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
-					<div class="kt-login__container">
-						<div class="kt-login__logo">
-							<a href="#">
-								<img src="<?= base_url(); ?>assets/media/logos/logo-5.png">
-							</a>
-						</div>
-						<div class="kt-login__signin">
-							<div class="kt-login__head">
-								<h3 class="kt-login__title"><?= $_SERVER['SERVER_NAME']; ?></h3>
-							</div>
-							<form class="kt-form" action="<?= base_url() . 'otentifikasi' ?>" method="post" id="form_validation">
-								<div class="input-group">
-									<input class="form-control" type="text" placeholder="Username" name="username" autocomplete="off">
-								</div>
-								<div class="input-group">
-									<input class="form-control" type="password" placeholder="Password" name="password">
-								</div>
-								<div class="kt-login__actions">
-									<button id="kt_login_signin_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- end:: Page -->
-
-	<!-- begin::Global Config(global config for global JS sciprts) -->
-	<script>
-		var KTAppOptions = {
-			"colors": {
-				"state": {
-					"brand": "#5d78ff",
-					"dark": "#282a3c",
-					"light": "#ffffff",
-					"primary": "#5867dd",
-					"success": "#34bfa3",
-					"info": "#36a3f7",
-					"warning": "#ffb822",
-					"danger": "#fd3995"
-				},
-				"base": {
-					"label": [
-						"#c5cbe3",
-						"#a1a8c3",
-						"#3d4465",
-						"#3e4466"
-					],
-					"shape": [
-						"#f0f3ff",
-						"#d9dffa",
-						"#afb4d4",
-						"#646c9a"
-					]
-				}
+<body id="kt_body" class="auth-bg bgi-size-cover bgi-attachment-fixed bgi-position-center bgi-no-repeat">
+	<!--begin::Theme mode setup on page load-->
+	<script>var defaultThemeMode = "light"; var themeMode; if (document.documentElement) { if (document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if (localStorage.getItem("data-bs-theme") !== null) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+	<!--end::Theme mode setup on page load-->
+	<!--begin::Main-->
+	<!--begin::Root-->
+	<div class="d-flex flex-column flex-root">
+		<!--begin::Page bg image-->
+		<style>
+			body {
+				background-image: url('<?= base_url() ?>assets/media/auth/bg4.jpg');
 			}
-		};
-	</script>
 
-	<!-- end::Global Config -->
-
-	<!--begin::Global Theme Bundle(used by all pages) -->
-	<script src="<?= base_url(); ?>assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assets/js/scripts.bundle.js" type="text/javascript"></script>
-
-	<!--end::Global Theme Bundle -->
-
-	<!--begin::Page Scripts(used by this page) -->
-	<script src="<?= base_url(); ?>assets/js/pages/custom/pages/user/login.js" type="text/javascript"></script>
-
-	<!--end::Page Scripts -->
+			[data-bs-theme="dark"] body {
+				background-image: url('<?= base_url() ?>assets/media/auth/bg4-dark.jpg');
+			}
+		</style>
+		<!--end::Page bg image-->
+		<!--begin::Authentication - Sign-in -->
+		<div class="d-flex flex-column flex-column-fluid flex-lg-row">
+			<!--begin::Aside-->
+			<div class="d-flex flex-center w-lg-50 pt-15 pt-lg-0 px-10">
+				<!--begin::Aside-->
+				<div class="d-flex flex-center flex-lg-start flex-column">
+					<!--begin::Logo-->
+					<a href="index.html" class="mb-7">
+						<img alt="Logo" src="<?= base_url() ?>assets/media/logos/custom-3.svg" />
+					</a>
+					<!--end::Logo-->
+					<!--begin::Title-->
+					<h2 class="text-white fw-normal m-0">Aplikasi Sidang Keliling Online Pengadilan Agama Penajam</h2>
+					<!--end::Title-->
+				</div>
+				<!--begin::Aside-->
+			</div>
+			<!--begin::Aside-->
+			<!--begin::Body-->
+			<div
+				class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12 p-lg-20">
+				<!--begin::Card-->
+				<div class="bg-body d-flex flex-column align-items-stretch flex-center rounded-4 w-md-600px p-20">
+					<!--begin::Wrapper-->
+					<div class="d-flex flex-center flex-column flex-column-fluid px-lg-10 pb-15 pb-lg-20">
+						<!--begin::Form-->
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
+							data-kt-redirect-url="index.html" action="#">
+							<!--begin::Heading-->
+							<div class="text-center mb-11">
+								<!--begin::Title-->
+								<h1 class="text-gray-900 fw-bolder mb-3">Masuk</h1>
+								<!--end::Title-->
+								<!--begin::Subtitle-->
+								<div class="text-gray-500 fw-semibold fs-6">Administrator</div>
+								<!--end::Subtitle=-->
+							</div>
+							<!--begin::Heading-->
+							<!--begin::Input group=-->
+							<div class="fv-row mb-8">
+								<!--begin::Email-->
+								<input type="text" placeholder="Email" name="email" autocomplete="off"
+									class="form-control bg-transparent" />
+								<!--end::Email-->
+							</div>
+							<!--end::Input group=-->
+							<div class="fv-row mb-3">
+								<!--begin::Password-->
+								<input type="password" placeholder="Password" name="password" autocomplete="off"
+									class="form-control bg-transparent" />
+								<!--end::Password-->
+							</div>
+							<!--end::Input group=-->
+							<!--begin::Submit button-->
+							<div class="d-grid mb-10">
+								<button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+									<!--begin::Indicator label-->
+									<span class="indicator-label">Masuk</span>
+									<!--end::Indicator label-->
+									<!--begin::Indicator progress-->
+									<span class="indicator-progress">Silakan tunggu ...
+										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+									<!--end::Indicator progress-->
+								</button>
+							</div>
+							<!--end::Submit button-->
+						</form>
+						<!--end::Form-->
+					</div>
+					<!--end::Wrapper-->
+				</div>
+				<!--end::Card-->
+			</div>
+			<!--end::Body-->
+		</div>
+		<!--end::Authentication - Sign-in-->
+	</div>
+	<!--end::Root-->
+	<!--end::Main-->
+	<!--begin::Javascript-->
+	<script>var hostUrl = "assets/";</script>
+	<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+	<script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js"></script>
+	<script src="<?= base_url() ?>assets/js/scripts.bundle.js"></script>
+	<!--end::Global Javascript Bundle-->
+	<!--begin::Custom Javascript(used for this page only)-->
+	<script src="<?= base_url() ?>assets/js/custom/authentication/sign-in/general.js"></script>
+	<!--end::Custom Javascript-->
+	<!--end::Javascript-->
 </body>
-
-<!-- end::Body -->
+<!--end::Body-->
 
 </html>
