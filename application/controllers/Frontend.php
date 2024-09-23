@@ -107,6 +107,12 @@ class Frontend extends CI_Controller
 				)
 			);
 		} else {
+			$data_img = $this->upload->data();
+			
+			echo "<pre>";
+			print_r ($data_img);
+			echo "</pre>";exit;
+			
 			$konfig['image_library']  = 'gd2';
 			$konfig['source_image']   = $config['upload_path'] . $config['file_name'] . '.' . $ext;
 			$konfig['maintain_ratio'] = true;
