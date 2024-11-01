@@ -35,12 +35,12 @@ class Frontend extends CI_Controller
 		$this->form_validation->set_rules('registrasi_jenis_perkara', 'Jenis Perkara', 'trim|xss_clean');
 		if ($this->form_validation->run()) {
 			if (IS_AJAX) {
-				$registrasi_alamat        = $this->input->post('registrasi_alamat',true);
-				$registrasi_jenis_perkara = $this->input->post('registrasi_jenis_perkara',true);
-				$registrasi_identitas     = $this->input->post('registrasi_identitas',true);
-				$registrasi_nama          = $this->input->post('registrasi_nama',true);
-				$registrasi_tgl_lahir     = $this->input->post('registrasi_tgl_lahir',true);
-				$registrasi_pekerjaan     = $this->input->post('registrasi_pekerjaan',true);
+				$registrasi_alamat        = $this->input->post('registrasi_alamat', true);
+				$registrasi_jenis_perkara = $this->input->post('registrasi_jenis_perkara', true);
+				$registrasi_identitas     = $this->input->post('registrasi_identitas', true);
+				$registrasi_nama          = $this->input->post('registrasi_nama', true);
+				$registrasi_tgl_lahir     = $this->input->post('registrasi_tgl_lahir', true);
+				$registrasi_pekerjaan     = $this->input->post('registrasi_pekerjaan', true);
 				$registrasi_file          = $_FILES['registrasi_file']['name'];
 
 				$param = array(
@@ -53,7 +53,7 @@ class Frontend extends CI_Controller
 					'registrasi_file'          => $registrasi_file,
 				);
 				$cek   = $this->{$this->_model_name}->get_by_id('d_registrasi', array('registrasi_identitas' => $registrasi_identitas));
-				
+
 				if (empty($cek)) {
 					$proses = $this->{$this->_model_name}->insert('d_registrasi', $param);
 					if ($proses) {
@@ -76,7 +76,7 @@ class Frontend extends CI_Controller
 							)
 						);
 					}
-				}else{
+				} else {
 					echo json_encode(
 						array(
 							'status'  => 'error',
@@ -108,16 +108,14 @@ class Frontend extends CI_Controller
 			);
 		} else {
 			$data_img = $this->upload->data();
-			
-			echo "<pre>";
-			print_r ($data_img);
-			echo "</pre>";exit;
-			
+
 			$konfig['image_library']  = 'gd2';
 			$konfig['source_image']   = $config['upload_path'] . $config['file_name'] . '.' . $ext;
 			$konfig['maintain_ratio'] = true;
-			$konfig['width']          = 300;
-
+			if ($data_img['image_width'] > $data_img['image_height'])
+				$konfig['width'] = 300;
+			else
+				$konfig['height'] = 300;
 			$this->load->library('image_lib', $konfig);
 			return $this->image_lib->resize();
 		}
