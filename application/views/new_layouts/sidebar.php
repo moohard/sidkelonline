@@ -6,9 +6,9 @@
 	<!-- begin:: Aside -->
 	<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
 		<div class="kt-aside__brand-logo">
-			<a href="<?=base_url();?>">
+			<a href="<?= base_url(); ?>">
 				<div style="font-size:18px;font-weight:bold;color:aliceblue" id="kt-aside__brand-name" class="kt-hidden-mobile">
-					<?=$_SERVER['SERVER_NAME'];?>
+					<?= $_SERVER['SERVER_NAME']; ?>
 				</div>
 				<!-- <img alt="Logo" src="assets/media/logos/logo-light.png" /> -->
 			</a>
@@ -40,89 +40,89 @@
 	<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
 		<div id="kt_aside_menu" class="kt-aside-menu " data-ktmenu-vertical="1" data-ktmenu-scroll="1" data-ktmenu-dropdown-timeout="500">
 			<ul class="kt-menu__nav ">
-				<li class="kt-menu__item  <?= isset($breadcrumb) ? $breadcrumb->susrmdgroupDisplay=='Dashboard' ? 'kt-menu__item--active' : '' : ''?> " aria-haspopup="true"><a href="<?=base_url();?>home" class="kt-menu__link "><span class="kt-menu__link-icon">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-					<rect x="0" y="0" width="24" height="24"/>
-					<path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3"/>
-					<path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000"/>
-				</g>
-			</svg></span><span class="kt-menu__link-text">Dashboard</span></a></li>
+				<li class="kt-menu__item  <?= isset($breadcrumb) ? $breadcrumb->susrmdgroupDisplay == 'Dashboard' ? 'kt-menu__item--active' : '' : '' ?> " aria-haspopup="true"><a href="<?= base_url(); ?>home" class="kt-menu__link "><span class="kt-menu__link-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+									<rect x="0" y="0" width="24" height="24" />
+									<path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3" />
+									<path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000" />
+								</g>
+							</svg></span><span class="kt-menu__link-text">Dashboard</span></a></li>
 				<li class="kt-menu__section ">
 					<h4 class="kt-menu__section-text">Menus</h4>
 					<i class="kt-menu__section-icon flaticon-more-v2"></i>
 				</li>
 				<?php
-					$cRow = 0;
-					$curMenu = '';
-					$susrmdgroupDisplay = '';
-					$susrmodulNamaDisplay = '';
+				$cRow = 0;
+				$curMenu = '';
+				$susrmdgroupDisplay = '';
+				$susrmodulNamaDisplay = '';
 
-					if(isset($breadcrumb)):
-						$susrmdgroupDisplay = $breadcrumb->susrmdgroupDisplay;
-						$susrmodulNamaDisplay = $breadcrumb->susrmodulNamaDisplay;
-					endif;
+				if (isset($breadcrumb)):
+					$susrmdgroupDisplay = $breadcrumb->susrmdgroupDisplay;
+					$susrmodulNamaDisplay = $breadcrumb->susrmodulNamaDisplay;
+				endif;
 
-					if($menus!==false):
-						foreach($menus as $row):
-							if($curMenu!=$row->susrmdgroupDisplay):
-									$statusCurMenu = false;
-									$curMenu=$row->susrmdgroupDisplay;
-							else:
-									$statusCurMenu = true;
-							endif;
+				if ($menus !== false):
+					foreach ($menus as $row):
+						if ($curMenu != $row->susrmdgroupDisplay):
+							$statusCurMenu = false;
+							$curMenu = $row->susrmdgroupDisplay;
+						else:
+							$statusCurMenu = true;
+						endif;
 
-							if($statusCurMenu==false):
+						if ($statusCurMenu == false):
 
-								if($cRow!=0):
+							if ($cRow != 0):
 				?>
-						</ul>
-					</div>
-				</li>
-				<?php
-								endif;
-				?>
-				<li class="kt-menu__item  kt-menu__item--submenu <?= $row->susrmdgroupDisplay==$susrmdgroupDisplay ? 'kt-menu__item--open kt-menu__item--expanded' : '' ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon">
-						<?= $row->susrmdgroupIcon ?>
-					</span><span class="kt-menu__link-text"><?= $row->susrmdgroupDisplay ?></span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-					<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
-						<ul class="kt-menu__subnav">
-							<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text"><?= $row->susrmdgroupDisplay ?></span></span></li>
-				<?php
-							endif;
-				?>
-							<li class="kt-menu__item <?= $row->susrmodulNamaDisplay==$susrmodulNamaDisplay ? 'kt-menu__item--active' : '' ?>" aria-haspopup="true">
-								<a href="/<?= $row->susrmodulNama ?>" class="kt-menu__link ">
-									<i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
-									<span class="kt-menu__link-text"><?= $row->susrmodulNamaDisplay ?></span>
-								</a>
-							</li>
-				<?php
-							$cRow++;
-							if($cRow==count($menus)):
-				?>	
-					</ul>
-				</div>
-			</li>
-			<?php
-							endif;
-
-						endforeach;
-
-					endif;
-			?>
-				<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="https://keenthemes.com/metronic/preview/demo1/builder.html" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									<rect x="0" y="0" width="24" height="24" />
-									<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
-									<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) " x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
-								</g>
-							</svg></span><span class="kt-menu__link-text">Builder</span></a></li>
 			</ul>
 		</div>
-	</div>
+		</li>
+	<?php
+							endif;
+	?>
+	<li class="kt-menu__item  kt-menu__item--submenu <?= $row->susrmdgroupDisplay == $susrmdgroupDisplay ? 'kt-menu__item--open kt-menu__item--expanded' : '' ?>" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon">
+				<?= $row->susrmdgroupIcon ?>
+			</span><span class="kt-menu__link-text"><?= $row->susrmdgroupDisplay ?></span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+		<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+			<ul class="kt-menu__subnav">
+				<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text"><?= $row->susrmdgroupDisplay ?></span></span></li>
+			<?php
+						endif;
+			?>
+			<li class="kt-menu__item <?= $row->susrmodulNamaDisplay == $susrmodulNamaDisplay ? 'kt-menu__item--active' : '' ?>" aria-haspopup="true">
+				<a href="/<?= $row->susrmodulNama ?>" class="kt-menu__link ">
+					<i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
+					<span class="kt-menu__link-text"><?= $row->susrmodulNamaDisplay ?></span>
+				</a>
+			</li>
+			<?php
+						$cRow++;
+						if ($cRow == count($menus)):
+			?>
+			</ul>
+		</div>
+	</li>
+<?php
+						endif;
 
-	<!-- end:: Aside Menu -->
+					endforeach;
+
+				endif;
+?>
+<li class="kt-menu__item " aria-haspopup="true"><a target="_blank" href="https://keenthemes.com/metronic/preview/demo1/builder.html" class="kt-menu__link "><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<rect x="0" y="0" width="24" height="24" />
+					<path d="M5,3 L6,3 C6.55228475,3 7,3.44771525 7,4 L7,20 C7,20.5522847 6.55228475,21 6,21 L5,21 C4.44771525,21 4,20.5522847 4,20 L4,4 C4,3.44771525 4.44771525,3 5,3 Z M10,3 L11,3 C11.5522847,3 12,3.44771525 12,4 L12,20 C12,20.5522847 11.5522847,21 11,21 L10,21 C9.44771525,21 9,20.5522847 9,20 L9,4 C9,3.44771525 9.44771525,3 10,3 Z" fill="#000000" />
+					<rect fill="#000000" opacity="0.3" transform="translate(17.825568, 11.945519) rotate(-19.000000) translate(-17.825568, -11.945519) " x="16.3255682" y="2.94551858" width="3" height="18" rx="1" />
+				</g>
+			</svg></span><span class="kt-menu__link-text">Builder</span></a></li>
+</ul>
+	</div>
+</div>
+
+<!-- end:: Aside Menu -->
 </div>
 
 <!-- end:: Aside -->
