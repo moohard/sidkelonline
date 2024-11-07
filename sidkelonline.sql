@@ -18,25 +18,29 @@ USE `sidkelonline`;
 
 /*Table structure for table `d_registrasi` */
 
-DROP TABLE IF EXISTS `d_registrasi`;
-
 CREATE TABLE `d_registrasi` (
   `registrasi_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `registrasi_nama` varchar(255) DEFAULT NULL COMMENT 'Nama Pendaftar',
-  `registrasi_identitas` varchar(16) DEFAULT NULL COMMENT 'Nomor Identitas (KTP)',
-  `registrasi_umur` int(3) unsigned DEFAULT NULL COMMENT 'Umur',
+  `registrasi_identitas` varchar(16) DEFAULT NULL COMMENT 'Identitas Pendaftar (Nomor KTP)',
+  `registrasi_nama` varchar(100) DEFAULT NULL COMMENT 'Nama',
+  `registrasi_tgl_lahir` date DEFAULT NULL COMMENT 'Umur',
   `registrasi_pekerjaan` varchar(100) DEFAULT NULL COMMENT 'Pekerjaan',
-  `registrasi_alamat` int(11) unsigned DEFAULT NULL COMMENT 'Alamat',
-  `registrasi_file` varchar(255) DEFAULT NULL COMMENT 'Upload',
-  `registrasi_jenis_perkara` enum('Gugatan Cerai Gugat (Pendaftar Pihak Perempuan)','Gugatan Cerai Talak (Pendaftar Pihak Laki-laki)','Permohonan Istbat Nikah','Permohonan Dispensasi Kawin') DEFAULT NULL COMMENT 'Jenis Perkara yang ingin didaftarkan',
-  PRIMARY KEY (`registrasi_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `registrasi_jenis_perkara` enum('Gugatan Cerai Talak (Pihak Pendaftar Laki-Laki)','Gugatan Cerai Gugat (Pihak Pendaftar Perempuan)','Permohonan Itsbat Nikah','Permohonan Dispensasi Kawin') DEFAULT NULL COMMENT 'Jenis Perkara',
+  `registrasi_file` varchar(100) DEFAULT NULL COMMENT 'Upload Foto Identitas',
+  `registrasi_alamat` char(10) DEFAULT NULL COMMENT 'Alamat',
+  PRIMARY KEY (`registrasi_id`),
+  KEY `registrasi_alamat` (`registrasi_alamat`),
+  CONSTRAINT `d_registrasi_ibfk_1` FOREIGN KEY (`registrasi_alamat`) REFERENCES `r_villages` (`villageId`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `d_registrasi` */
 
-/*Table structure for table `r_districts` */
+insert  into `d_registrasi`(`registrasi_id`,`registrasi_identitas`,`registrasi_nama`,`registrasi_tgl_lahir`,`registrasi_pekerjaan`,`registrasi_jenis_perkara`,`registrasi_file`,`registrasi_alamat`) values 
+(1,'1234561234561234','muhar','1991-07-13','PNS','Gugatan Cerai Gugat (Pihak Pendaftar Perempuan)','DSC00886.JPG','6409032002'),
+(2,'1234561234561235','muhar','1991-07-13','PNS','Permohonan Itsbat Nikah','DSC00858.JPG','6409032001'),
+(3,'1234561234561237','muhar','1991-07-13','PNS','Permohonan Itsbat Nikah','DSC00858.JPG','6409032001'),
+(4,'1234561234561230','muhar','1991-07-13','PNS','Permohonan Itsbat Nikah','DSC00858.JPG','6409032001');
 
-DROP TABLE IF EXISTS `r_districts`;
+/*Table structure for table `r_districts` */
 
 CREATE TABLE `r_districts` (
   `districtId` char(7) NOT NULL,
@@ -44,8 +48,8 @@ CREATE TABLE `r_districts` (
   `districtNama` varchar(255) NOT NULL,
   PRIMARY KEY (`districtId`),
   KEY `districts_id_index` (`regency_id`),
-  CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `r_regencies` (`regencyId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  CONSTRAINT `r_districts_ibfk_1` FOREIGN KEY (`regency_id`) REFERENCES `r_regencies` (`regencyId`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `r_districts` */
 
@@ -7319,13 +7323,11 @@ insert  into `r_districts`(`districtId`,`regency_id`,`districtNama`) values
 
 /*Table structure for table `r_provinces` */
 
-DROP TABLE IF EXISTS `r_provinces`;
-
 CREATE TABLE `r_provinces` (
   `provinceId` char(2) NOT NULL,
   `provinceNama` varchar(255) NOT NULL,
   PRIMARY KEY (`provinceId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `r_provinces` */
 
@@ -7367,16 +7369,14 @@ insert  into `r_provinces`(`provinceId`,`provinceNama`) values
 
 /*Table structure for table `r_regencies` */
 
-DROP TABLE IF EXISTS `r_regencies`;
-
 CREATE TABLE `r_regencies` (
   `regencyId` char(4) NOT NULL,
   `province_id` char(2) NOT NULL,
   `regencyNama` varchar(255) NOT NULL,
   PRIMARY KEY (`regencyId`),
   KEY `regencies_province_id_index` (`province_id`),
-  CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `r_provinces` (`provinceId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+  CONSTRAINT `r_regencies_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `r_provinces` (`provinceId`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `r_regencies` */
 
@@ -7898,15 +7898,13 @@ insert  into `r_regencies`(`regencyId`,`province_id`,`regencyNama`) values
 
 /*Table structure for table `r_villages` */
 
-DROP TABLE IF EXISTS `r_villages`;
-
 CREATE TABLE `r_villages` (
-  `villageId` char(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `district_id` char(7) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `villageNama` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `villageId` char(10) NOT NULL,
+  `district_id` char(7) NOT NULL,
+  `villageNama` varchar(255) NOT NULL,
   PRIMARY KEY (`villageId`),
   KEY `villages_district_id_index` (`district_id`),
-  CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `r_districts` (`districtId`)
+  CONSTRAINT `r_villages_ibfk_1` FOREIGN KEY (`district_id`) REFERENCES `r_districts` (`districtId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `r_villages` */
@@ -91382,8 +91380,6 @@ insert  into `r_villages`(`villageId`,`district_id`,`villageNama`) values
 
 /*Table structure for table `s_unit` */
 
-DROP TABLE IF EXISTS `s_unit`;
-
 CREATE TABLE `s_unit` (
   `unitId` int(11) NOT NULL AUTO_INCREMENT,
   `unitKode` varchar(10) NOT NULL DEFAULT '',
@@ -91394,8 +91390,6 @@ CREATE TABLE `s_unit` (
 /*Data for the table `s_unit` */
 
 /*Table structure for table `s_user` */
-
-DROP TABLE IF EXISTS `s_user`;
 
 CREATE TABLE `s_user` (
   `susrNama` varchar(255) NOT NULL DEFAULT '',
@@ -91415,11 +91409,9 @@ CREATE TABLE `s_user` (
 /*Data for the table `s_user` */
 
 insert  into `s_user`(`susrNama`,`susrPassword`,`susrSgroupNama`,`susrProfil`,`susrPertanyaan`,`susrJawaban`,`susrAvatar`,`susrRefIndex`,`susrLastLogin`) values 
-('admin','$2y$10$s4FnpsE.vELN7iQgjMF7seOS.wtEJgE4kUuSbhooiVf7nqrMNVlHW','ADMIN','Administrator','','','','','2024-09-18 15:31:02');
+('admin','$2y$10$Xnlti5TwR3rhHRm6PpeHxuo7KIHoxob41tJI.KLeI0Fn5jM1YxSKW','ADMIN','Administrator','','','','','2024-09-19 09:48:39');
 
 /*Table structure for table `s_user_group` */
-
-DROP TABLE IF EXISTS `s_user_group`;
 
 CREATE TABLE `s_user_group` (
   `sgroupNama` varchar(255) NOT NULL DEFAULT '',
@@ -91433,8 +91425,6 @@ insert  into `s_user_group`(`sgroupNama`,`sgroupKeterangan`) values
 ('ADMIN','ADMINISTRATOR');
 
 /*Table structure for table `s_user_group_modul` */
-
-DROP TABLE IF EXISTS `s_user_group_modul`;
 
 CREATE TABLE `s_user_group_modul` (
   `sgroupmodulSgroupNama` varchar(255) NOT NULL DEFAULT '',
@@ -91460,8 +91450,6 @@ insert  into `s_user_group_modul`(`sgroupmodulSgroupNama`,`sgroupmodulSusrmodulN
 
 /*Table structure for table `s_user_group_unit` */
 
-DROP TABLE IF EXISTS `s_user_group_unit`;
-
 CREATE TABLE `s_user_group_unit` (
   `sgroupunitSgroupNama` varchar(255) NOT NULL DEFAULT '',
   `sgroupunitUnitId` int(11) NOT NULL,
@@ -91475,8 +91463,6 @@ CREATE TABLE `s_user_group_unit` (
 /*Data for the table `s_user_group_unit` */
 
 /*Table structure for table `s_user_modul_group_ref` */
-
-DROP TABLE IF EXISTS `s_user_modul_group_ref`;
 
 CREATE TABLE `s_user_modul_group_ref` (
   `susrmdgroupNama` varchar(50) NOT NULL DEFAULT '',
@@ -91492,8 +91478,6 @@ insert  into `s_user_modul_group_ref`(`susrmdgroupNama`,`susrmdgroupDisplay`,`su
 ('tempmenu','Temporary','<i class=\"la la-star-o\"></i>');
 
 /*Table structure for table `s_user_modul_ref` */
-
-DROP TABLE IF EXISTS `s_user_modul_ref`;
 
 CREATE TABLE `s_user_modul_ref` (
   `susrmodulNama` varchar(255) NOT NULL DEFAULT '',
