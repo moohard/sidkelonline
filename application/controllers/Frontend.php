@@ -16,7 +16,7 @@ class Frontend extends CI_Controller
 	public function index()
 	{
 		$data['r_villages']    = $this->{$this->_model_name}->get_ref_table('r_villages', '', array('district_id' => '640903'));
-		$data['modal']         = 'pages/frontend/form';
+		$data['modal']         = ['pages/frontend/form','pages/frontend/form_prodeo'];
 		$data['pages']         = 'pages/frontend/index';
 		$data['jenis_perkara'] = $this->{$this->_model_name}->get_enum_values('d_registrasi', 'registrasi_jenis_perkara');
 		$data['simpan_url']    = site_url('frontend/simpan');

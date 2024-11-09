@@ -5,7 +5,7 @@
 		<!--begin::Page title-->
 		<div class="page-title d-flex flex-column me-3">
 			<!--begin::Title-->
-			<h1 class="d-flex text-white fw-bold my-1 fs-3">Aplikasi Pendaftaran Sidang Keliling Online</h1>
+			<h1 class="d-flex text-white fw-bold my-1 fs-3">Pendaftaran Sidang Keliling dan Prodeo Online</h1>
 			<!--end::Title-->
 			<!--begin::Breadcrumb-->
 			<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-1">

@@ -20,11 +20,31 @@
 		type="text/css" />
 	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-	<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top !=window.self){ window.top.location.replace(window.self.location.href)}</script>
+	<script>
+		// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top !=window.self){ window.top.location.replace(window.self.location.href)}
+	</script>
 </head>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
-	<script>var defaultThemeMode = "light"; var themeMode; if (document.documentElement) { if (document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if (localStorage.getItem("data-bs-theme") !== null) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+	<script>
+		var defaultThemeMode = "light";
+		var themeMode;
+		if (document.documentElement) {
+			if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+				themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+			} else {
+				if (localStorage.getItem("data-bs-theme") !== null) {
+					themeMode = localStorage.getItem("data-bs-theme");
+				} else {
+					themeMode = defaultThemeMode;
+				}
+			}
+			if (themeMode === "system") {
+				themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+			}
+			document.documentElement.setAttribute("data-bs-theme", themeMode);
+		}
+	</script>
 	<div class="d-flex flex-column flex-root">
 		<div class="page d-flex flex-row flex-column-fluid">
 			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -37,8 +57,14 @@
 	</div>
 	<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true"><i class="ki-duotone ki-arrow-up"><span
 				class="path1"></span><span class="path2"></span></i></div>
-	<?php $this->load->view($modal); ?>
-	<script>var hostUrl = "<?= base_url() ?>assets/";</script>
+	<?php
+	foreach ($modal as $m):
+		$this->load->view($m);
+	endforeach;
+	?>
+	<script>
+		var hostUrl = "<?= base_url() ?>assets/";
+	</script>
 	<script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js"></script>
 	<script src="<?= base_url() ?>assets/js/scripts.bundle.js"></script>
 	<?php if (isset($scripts)): ?>
