@@ -16,6 +16,10 @@ user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
+/application/sessions
+.htaccess
+/application/config/database.php
+*.sql
 
 # IDE Files
 #-------------------------
@@ -31,8 +35,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/tests/
 /tests/results/
 /upload
-/application/sessions
-.htaccess
-application/config/database.php
-/application/sessions
-*.sql
+
