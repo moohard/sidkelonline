@@ -39,3 +39,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 composer.lock
 composer.lock
 public/index.php
+public/index.php
