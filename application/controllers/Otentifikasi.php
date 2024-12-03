@@ -20,12 +20,11 @@ class otentifikasi extends CI_Controller
             $result['message'] = 'Incorrect Username or Password. Please try again.';
         }
 		else
-		{
+		{			
 			$result['status'] = 'success';
             $result['message'] = 'You have successfully logged in.';
 			$result['redirect_url'] = base_url().'home';
 		}
-
 		$this->output->set_content_type('application/json');
 	    $this->output->set_output(json_encode($result));
 	    echo $this->output->get_output();

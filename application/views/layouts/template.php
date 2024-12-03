@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 <!-- begin::Head -->
 
@@ -36,18 +24,18 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--end::Web font -->
 	<!--begin::Base Styles -->
 	<!--begin::Page Vendors -->
-	<link href="<?= base_url(); ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Page Vendors -->
-	<link href="<?= base_url(); ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<!--end::Base Styles -->
 
 	<!--begin::Layout Skins(used by all pages) -->
-	<link href="<?= base_url(); ?>assets/css/skins/header/base/dark.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/header/menu/dark.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/brand/dark.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url(); ?>assets/css/skins/aside/light.css" rel="stylesheet" type="text/css" />
-	<!-- <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon_bak2.ico" /> -->
+	<link href="<?= base_url(); ?>assets_backend/css/skins/header/base/dark.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/css/skins/header/menu/dark.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/css/skins/brand/dark.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/css/skins/aside/light.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="shortcut icon" href="assets_backend/demo/default/media/img/logo/favicon_bak2.ico" /> -->
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -61,7 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div style="position:absolute;top:30%;left:14px;font-size:16px;font-weight:bold;color:aliceblue">
 					<?= $_SERVER['SERVER_NAME']; ?>
 				</div>
-				<!-- <img alt="Logo" src="assets/media/logos/logo-light.png" /> -->
+				<!-- <img alt="Logo" src="assets_backend/media/logos/logo-light.png" /> -->
 			</a>
 		</div>
 		<div class="kt-header-mobile__toolbar">
@@ -155,22 +143,22 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- end::Global Config -->
 
 	<!--begin::Base Scripts -->
-	<script src="<?= base_url(); ?>assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assets/js/scripts.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/plugins/global/plugins.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/js/scripts.bundle.js" type="text/javascript"></script>
 
 	<!--begin::Page Vendors -->
-	<script src="<?= base_url(); ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 	<!--end::Page Vendors -->
 	<!--begin::Page Snippets -->
-	<script src="<?= base_url(); ?>assets/plugins/custom/flot/flot.bundle.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assets/js/pages/custom/pages/dashboard.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assets/js/pages/custom/pages/form-submit-general.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/plugins/custom/flot/flot.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/dashboard.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/form-submit-general.js" type="text/javascript"></script>
 	<!--end::Page Snippets -->
 
 	<!--begin::Custom Page -->
 	<?php if (isset($scripts)) : ?>
 		<?php foreach ($scripts as $script) : ?>
-			<script type="text/javascript" src="<?= base_url(); ?>assets/js/pages/custom/pages/<?= $script ?>.js"></script>
+			<script type="text/javascript" src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/<?= $script ?>.js"></script>
 		<?php endforeach; ?>
 	<?php endif; ?>
 	<!--end::Custom Page -->

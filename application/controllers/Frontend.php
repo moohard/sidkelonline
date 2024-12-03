@@ -10,22 +10,22 @@ class Frontend extends CI_Controller
 		parent::__construct();
 
 		$this->_model_name = 'model_d_registrasi';
-		$this->load->model($this->_model_name, '', TRUE);
+		$this->load->model($this->_model_name, '', true);
 	}
 
 	public function index()
 	{
-		$data['r_villages']    = $this->{$this->_model_name}->get_ref_table('r_villages', '', array('district_id' => '640903'));
-		$data['modal']         = ['pages/frontend/form','pages/frontend/form_prodeo'];
-		$data['pages']         = 'pages/frontend/index';
+		$data['r_villages'] = $this->{$this->_model_name}->get_ref_table('r_villages', '', array('district_id' => '640903'));
+		$data['modal'] = ['pages/frontend/form', 'pages/frontend/form_prodeo'];
+		$data['pages'] = 'pages/frontend/index';
 		$data['jenis_perkara'] = $this->{$this->_model_name}->get_enum_values('d_registrasi', 'registrasi_jenis_perkara');
-		$data['simpan_url']    = site_url('frontend/simpan');
-		$data['scripts']       = ['frontend'];
+		$data['simpan_url'] = site_url('frontend/simpan');
+		$data['scripts'] = ['frontend'];
 
 		$this->load->view('new_layouts/template', $data);
 	}
 
-	function simpan()
+	public function simpan()
 	{
 		$this->form_validation->set_rules('registrasi_alamat', 'Alamat', 'trim|xss_clean');
 		$this->form_validation->set_rules('registrasi_identitas', 'Identitas Pendaftar (Nomor KTP)', 'trim|xss_clean');
@@ -33,36 +33,42 @@ class Frontend extends CI_Controller
 		$this->form_validation->set_rules('registrasi_tgl_lahir', 'Umur', 'trim|xss_clean');
 		$this->form_validation->set_rules('registrasi_pekerjaan', 'Pekerjaan', 'trim|xss_clean');
 		$this->form_validation->set_rules('registrasi_jenis_perkara', 'Jenis Perkara', 'trim|xss_clean');
+		if (!empty($this->input->post('registrasi_issidkel', true)))
+			$this->form_validation->set_rules('registrasi_issidkel', 'Sidang Keliling', 'trim|xss_clean');
 		if ($this->form_validation->run()) {
 			if (IS_AJAX) {
-				$registrasi_alamat        = $this->input->post('registrasi_alamat', true);
+				$registrasi_alamat = $this->input->post('registrasi_alamat', true);
 				$registrasi_jenis_perkara = $this->input->post('registrasi_jenis_perkara', true);
-				$registrasi_identitas     = $this->input->post('registrasi_identitas', true);
-				$registrasi_nama          = $this->input->post('registrasi_nama', true);
-				$registrasi_tgl_lahir     = $this->input->post('registrasi_tgl_lahir', true);
-				$registrasi_pekerjaan     = $this->input->post('registrasi_pekerjaan', true);
-				$registrasi_file          = $_FILES['registrasi_file']['name'];
+				$registrasi_identitas = $this->input->post('registrasi_identitas', true);
+				$registrasi_nama = $this->input->post('registrasi_nama', true);
+				$registrasi_tgl_lahir = $this->input->post('registrasi_tgl_lahir', true);
+				$registrasi_pekerjaan = $this->input->post('registrasi_pekerjaan', true);
+				$registrasi_jenis_pendaftaran = $this->input->post('registrasi_jenis_pendaftaran', true);
+				$registrasi_file = strtotime(date('Y-m-d H:i:s'));
+				$registrasi_issidkel = $this->input->post('registrasi_issidkel', true);
 
 				$param = array(
-					'registrasi_alamat'        => $registrasi_alamat,
+					'registrasi_alamat' => $registrasi_alamat,
 					'registrasi_jenis_perkara' => $registrasi_jenis_perkara,
-					'registrasi_identitas'     => $registrasi_identitas,
-					'registrasi_nama'          => $registrasi_nama,
-					'registrasi_tgl_lahir'     => $registrasi_tgl_lahir,
-					'registrasi_pekerjaan'     => $registrasi_pekerjaan,
-					'registrasi_file'          => $registrasi_file,
+					'registrasi_identitas' => $registrasi_identitas,
+					'registrasi_nama' => $registrasi_nama,
+					'registrasi_tgl_lahir' => $registrasi_tgl_lahir,
+					'registrasi_pekerjaan' => $registrasi_pekerjaan,
+					'registrasi_file' => $registrasi_file.'.'.pathinfo($_FILES['registrasi_file']['name'], PATHINFO_EXTENSION),
+					'registrasi_jenis_pendaftaran' => $registrasi_jenis_pendaftaran,
+					'registrasi_issidkel' => $registrasi_issidkel,
 				);
-				$cek   = $this->{$this->_model_name}->get_by_id('d_registrasi', array('registrasi_identitas' => $registrasi_identitas));
-
+				$cek = $this->{$this->_model_name}->get_by_id('d_registrasi', array('registrasi_identitas' => $registrasi_identitas));
 				if (empty($cek)) {
 					$proses = $this->{$this->_model_name}->insert('d_registrasi', $param);
 					if ($proses) {
-						$status = $this->uploadFile('registrasi_file', pathinfo($_FILES['registrasi_file']['name'], PATHINFO_EXTENSION));
-						if ($status) {
+						$status = $this->uploadFile('registrasi_file', pathinfo($_FILES['registrasi_file']['name'], PATHINFO_EXTENSION), $registrasi_jenis_pendaftaran);
+					
+						if ($status['status']) {
 							echo json_encode(
 								array(
-									'status'  => 'success',
-									'message' => 'Data Berhasil Disimpan'
+									'status' => 'success',
+									'message' => 'Data Berhasil Disimpan',
 								)
 							);
 						} else {
@@ -71,27 +77,27 @@ class Frontend extends CI_Controller
 					} else {
 						echo json_encode(
 							array(
-								'status'  => 'error',
-								'message' => 'Gagal Menyimpan Data'
+								'status' => 'error',
+								'message' => 'Gagal Menyimpan Data',
 							)
 						);
 					}
 				} else {
 					echo json_encode(
 						array(
-							'status'  => 'error',
-							'message' => 'Identitas Telah Terdaftar. Silakan hubungi administrator untuk mendaftar ulang!!'
+							'status' => 'error',
+							'message' => 'Identitas Telah Terdaftar. Silakan hubungi administrator untuk mendaftar ulang!!',
 						)
 					);
 				}
 			}
 		}
 	}
-	private function uploadFile($inputname, $ext)
-	{
-		$config['upload_path']   = '../upload/';
-		$config['allowed_types'] = 'jpg|png|jpeg';
-		$config['file_name']     = strtotime(date('Y-m-d H:i:s'));
+	private function uploadFile($inputname, $ext, $jenis)
+	{		
+		$config['upload_path'] = '../upload/';
+		$config['allowed_types'] = $jenis == 'PRODEO'?'pdf':'jpg|png|jpeg';
+		$config['file_name'] = strtotime(date('Y-m-d H:i:s'));
 
 		if (!file_exists($config['upload_path'])) {
 			mkdir($config['upload_path'], 0755, true);
@@ -102,22 +108,38 @@ class Frontend extends CI_Controller
 		if (!$this->upload->do_upload($inputname)) {
 			echo json_encode(
 				array(
-					'status'  => 'error',
-					'message' => $this->upload->display_errors()
+					'status' => 'error',
+					'message' => $this->upload->display_errors(),
 				)
 			);
 		} else {
-			$data_img = $this->upload->data();
+			if ($jenis == 'PRODEO') {
+				$status = array(
+					'status'=> true,
+					'datas' => $this->upload->data()
+				);
+				return $status;
+			}else{
+				$data_img = $this->upload->data();
 
-			$konfig['image_library']  = 'gd2';
-			$konfig['source_image']   = $config['upload_path'] . $config['file_name'] . '.' . $ext;
-			$konfig['maintain_ratio'] = true;
-			if ($data_img['image_width'] > $data_img['image_height'])
-				$konfig['width'] = 300;
-			else
-				$konfig['height'] = 300;
-			$this->load->library('image_lib', $konfig);
-			return $this->image_lib->resize();
+				$konfig['image_library'] = 'gd2';
+				$konfig['source_image'] = $config['upload_path'] . $config['file_name'] . '.' . $ext;
+				$konfig['maintain_ratio'] = true;
+				if ($data_img['image_width'] > $data_img['image_height']) {
+					$konfig['width'] = 300;
+				} else {
+					$konfig['height'] = 300;
+				}
+	
+				$this->load->library('image_lib', $konfig);
+				$this->image_lib->resize();
+				$status = array(
+					'status'=> true,
+					'datas' => $this->upload->data()
+				);
+				return $status;
+			}
+
 		}
 	}
 }

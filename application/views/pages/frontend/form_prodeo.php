@@ -21,19 +21,8 @@
 
             <!--begin::Modal body-->
             <div class="modal-body py-lg-10 px-lg-10">
-                <form action="<?= $simpan_url ?>" method='POST' enctype="multipart/form-data" id=form_registrasi>
-                    <div class="fv-row mb-5">
-                        <label class="required form-label">Sidang Keliling</label>
-                        <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_form_prodeo"
-                            data-placeholder="Pilih Ruang Sidang" data-allow-clear="true" name="registrasi_rsidang">
-                            <option value=""></option>
-                            <?php
-                            foreach ($r_villages as $row):
-                                echo '<option value="' . $row->villageId . '">' . $row->villageNama . '</option>';
-                            endforeach;
-                            ?>
-                        </select>
-                    </div>
+                <form action="<?= $simpan_url ?>" method='POST' enctype="multipart/form-data" id=form_prodeo>
+                    <input type="hidden" value="PRODEO" name="registrasi_jenis_pendaftaran">
                     <div class="fv-row mb-5">
                         <label class="required form-label">Jenis Perkara</label>
                         <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_form_prodeo"
@@ -63,55 +52,31 @@
                         <input type="text" class="form-control inputan" name="registrasi_tgl_lahir" placeholder="Tanggal Lahir"
                             aria-describedby="Tanggal Lahir" value="1991-07-13" readonly>
                     </div>
-                    <div class="fv-row mb-5">
+                    <div class="fv-row mb-10">
                         <label class="required form-label">Pekerjaan</label>
                         <input type="text" class="form-control inputan" name="registrasi_pekerjaan" placeholder="Pekerjaan"
                             aria-describedby="Pekerjaan" value="PNS">
+                    </div>
+                    <div class="fv-row mb-5">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" name="registrasi_isSidkel" value="" id="flexCheckChecked" />
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Sidang Keliling
+                            </label>
+                        </div>
+                        <span class="text-primary" style="font-size: 10px;">* Harap Dicentang Apabila mengikuti sidang keliling</span>
                     </div>
                     <div class="fv-row mb-5">
                         <!--begin::Label-->
                         <label class="required d-block fw-semibold fs-6 mb-5">Upload Surat Keterangan Tidak Mampu (SKTM beserta
                             pendaftar)</label>
                         <!--end::Label-->
-
-                        <!--begin::Image input-->
-                        <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
-                            style="background-image: url('assets/media/svg/avatars/blank.svg')">
-                            <!--begin::Preview existing avatar-->
-                            <div class="image-input-wrapper w-125px h-125px"></div>
-                            <!--end::Preview existing avatar-->
-
-                            <!--begin::Label-->
-                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Ganti Foto">
-                                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span
-                                        class="path2"></span></i>
-
-                                <!--begin::Inputs-->
-                                <input type="file" name="registrasi_file" accept=".png, .jpg, .jpeg" />
-                                <input type="hidden" name="registrasi_file_remove" />
-                                <!--end::Inputs-->
-                            </label>
-                            <!--end::Label-->
-
-                            <!--begin::Cancel-->
-                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Hapus Foto">
-                                <i class="ki-outline ki-cross fs-3"></i>
-                            </span>
-                            <!--end::Cancel-->
-
-                            <!--begin::Remove-->
-                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-                                data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-                                <i class="ki-outline ki-cross fs-3"></i>
-                            </span>
-                            <!--end::Remove-->
-                        </div>
-                        <!--end::Image input-->
-
+                        <!--begin::Inputs-->
+                        <input type="file" class="form-control" name="registrasi_file" accept=".pdf" />
+                        <input type="hidden" name="registrasi_file_remove" />
+                        <!--end::Inputs-->
                         <!--begin::Hint-->
-                        <div class="form-text">File yang diperbolehkan: png, jpg, jpeg.</div>
+                        <div class="form-text">File yang diperbolehkan: pdf.</div>
                         <!--end::Hint-->
                     </div>
                 </form>
@@ -120,7 +85,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-light hover-elevate-down" data-bs-dismiss="modal">Close</button>
 
-                <button type="button" class="btn btn-primary hover-elevate-down" id="btn_register">
+                <button type="button" class="btn btn-primary hover-elevate-down" id="btn_register_prodeo">
                     <span class="indicator-label">
                         Register
                     </span>
