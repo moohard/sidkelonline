@@ -27,6 +27,7 @@ class d_registrasi extends MY_Controller
         $data['create_url'] = site_url($this->_controller_name . '/create') . '/';
         $data['update_url'] = site_url($this->_controller_name . '/update') . '/';
         $data['delete_url'] = site_url($this->_controller_name . '/delete') . '/';
+
         $this->load->view($this->_template, $data);
     }
 
