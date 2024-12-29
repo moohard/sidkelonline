@@ -23,12 +23,32 @@ class d_registrasi extends MY_Controller
     {
         $data               = $this->get_master($this->_path_page . $this->_page_index);
         $data['scripts']    = ['d_registrasi'];
-        $data['datas']      = $this->{$this->_model_name}->all();
         $data['create_url'] = site_url($this->_controller_name . '/create') . '/';
         $data['update_url'] = site_url($this->_controller_name . '/update') . '/';
         $data['delete_url'] = site_url($this->_controller_name . '/delete') . '/';
+        $data['response_url'] = site_url($this->_controller_name . '/response') . '/';
 
         $this->load->view($this->_template, $data);
+    }
+
+    function response()
+    {
+        $this->form_validation->set_rules('jenis_pendaftaran', 'Jenis Pendaftaran', 'trim|xss_clean');
+        if ($this->form_validation->run()) {
+            if (IS_AJAX) {
+                $jenis_pendaftaran = $this->input->post('jenis_pendaftaran');
+                $data['datas'] = $this->{$this->_model_name}->get_ref_table('d_registrasi', '', ['registrasi_jenis_pendaftaran' => $jenis_pendaftaran]);
+                $data['page_judul'] = "Data Pendaftaran";
+                echo json_encode(
+                    [
+                        'status' => 'success',
+                        'response' => $this->load->view($this->_path_page . 'response', $data, FALSE)
+                    ]
+                );
+            }
+        } else {
+            message('Ooops!! Something Wrong!! ' . validation_errors(), 'error');
+        }
     }
 
     public function create()
