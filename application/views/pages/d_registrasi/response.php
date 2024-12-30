@@ -17,14 +17,13 @@
                 <table class="table table-hover">
                   <thead class="thead-light">
                     <tr>
-                      <th>No</th>
-                      <th>Alamat</th>
-                      <th>Identitas Pendaftar (Nomor KTP)</th>
-                      <th>Nama</th>
-                      <th>Umur</th>
-                      <th>Pekerjaan</th>
-                      <th>Jenis Perkara</th>
-                      <th>Action</th>
+                      <th style="text-align: center">No</th>
+                      <th style="text-align: center">Identitas Pendaftar (Nomor KTP)</th>
+                      <th style="text-align: center">Nama</th>
+                      <th style="text-align: center">Umur</th>
+                      <th style="text-align: center">Pekerjaan</th>
+                      <th style="text-align: center">Jenis Perkara</th>
+                      <th style="text-align: center">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,31 +32,30 @@
                       $i = 1;
                       foreach ($datas as $row) {
                         $key = $this->encryptions->encode($row->registrasi_id, $this->config->item('encryption_key'));
-                        ?>
-                        <tr>
-                          <th scope="row"><?= $i++ ?></th>
-                          <td><?= $row->registrasi_alamat ?></td>
-                          <td><?= $row->registrasi_identitas ?></td>
-                          <td><?= $row->registrasi_nama ?></td>
-                          <td><?= $row->registrasi_tgl_lahir ?></td>
-                          <td><?= $row->registrasi_pekerjaan ?></td>
-                          <td><?= $row->registrasi_jenis_perkara ?></td>
-                          <td>
-                            <a href="<?= $view_url . $key ?>" title="view"
-                              class="btn btn-outline-hover-danger btn-icon" data-skin="danger" data-toggle="kt-tooltip" data-placement="top" data-original-title="Brand skin">
-                              <span class="text-danger">
-                                <i class="fa fa-file-pdf"></i>
-                              </span>
-                            </a>
-                            <a href="<?= $validasi_url . $key ?>" title="validasi"
-                              class="btn btn-outline-hover-info btn-icon">
-                              <span class="text-info">
-                                <i class="fa fa-check-square"></i>
-                              </span>
-                            </a>
-                          </td>
-                        </tr>
-                        <?php
+                    ?>
+                    <tr>
+                      <th scope="row"><?= $i++ ?></th>
+                      <td><?= $row->registrasi_identitas ?></td>
+                      <td><?= $row->registrasi_nama ?></td>
+                      <td><?= $row->registrasi_tgl_lahir ?></td>
+                      <td><?= $row->registrasi_pekerjaan ?></td>
+                      <td><?= $row->registrasi_jenis_perkara ?></td>
+                      <td>
+                        <a href="#" class="kt-tooltip btn btn-outline-hover-danger btn-icon" data-placement="top"
+                          title="View" data-toggle="modal" data-target="#kt_modal_4_2">
+                          <span class="text-danger">
+                            <i class="fa fa-file-pdf"></i>
+                          </span>
+                        </a>
+                        <a href="<?= $validasi_url . $key ?>" data-placement="top" data-skin="brand" title="Validasi"
+                          class="kt-tooltip btn btn-outline-hover-info btn-icon">
+                          <span class="text-info">
+                            <i class="fa fa-check-square"></i>
+                          </span>
+                        </a>
+                      </td>
+                    </tr>
+                    <?php
                       }
                     }
                     ?>

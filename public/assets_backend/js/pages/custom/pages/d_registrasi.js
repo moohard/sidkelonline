@@ -24,7 +24,6 @@ var KTLoginGeneral = (function () {
           try {
             var res = $.parseJSON(data);
             $("#response").fadeIn("slow").html(res.response);
-            KTApp.initTooltips();
           } catch (err) {
             $("#response").fadeIn("slow").html(data);
           }
@@ -33,10 +32,21 @@ var KTLoginGeneral = (function () {
           button.removeClass("disabled");
           button.text(button_text);
         },
+      }).done(function (msg) {
+        KTApp.initTooltips();
       });
     };
     $("#form_submit").validate({
-      rules: {},
+      rules: {
+        jenis_pendaftaran: {
+          required: true,
+        },
+      },
+      messages: {
+        jenis_pendaftaran: {
+          required: "Silakan Pilih !!",
+        },
+      },
       submitHandler: function (e) {
         handleSubmit(e);
         return false;

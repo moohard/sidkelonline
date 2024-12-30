@@ -1,5 +1,5 @@
 <?php $this->load->view('layouts/subheader'); ?>
-<div class="kt-portlet">
+<div class="kt-portlet col-md-10 offset-md-1">
   <div class="kt-portlet__head">
     <div class="kt-portlet__head-label">
       <h3 class="kt-portlet__head-title">
@@ -10,9 +10,9 @@
 
   <form class="kt-form kt-form--fit kt-form--label-right" action="<?= $response_url ?>" method="POST" id="form_submit">
     <div class="kt-portlet__body">
-      <div class=" form-group row">
-        <label class="col-form-label col-lg-3 col-sm-12">Jenis Pendaftaran</label>
-        <div class=" col-lg-4 col-md-9 col-sm-12">
+      <div class=" form-group">
+        <div class="col-md-8 offset-md-2">
+          <label>Jenis Pendaftaran</label>
           <select class="form-control select2" id="jenis_pendaftaran" name="jenis_pendaftaran">
             <option value=""></option>
             <option value="SIDKEL">Sidang Keliling</option>
@@ -32,6 +32,5 @@
       </div>
     </div>
   </form>
-
 </div>
 <div id="response"></div>

@@ -24,7 +24,8 @@
 	<!--end::Web font -->
 	<!--begin::Base Styles -->
 	<!--begin::Page Vendors -->
-	<link href="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
+		type="text/css" />
 	<!--end::Page Vendors -->
 	<link href="<?= base_url(); ?>assets_backend/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url(); ?>assets_backend/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -40,7 +41,8 @@
 <!-- end::Head -->
 <!-- end::Body -->
 
-<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+<body
+	class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
 	<!-- begin:: Page -->
 	<!-- begin:: Header Mobile -->
 	<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
@@ -53,9 +55,11 @@
 			</a>
 		</div>
 		<div class="kt-header-mobile__toolbar">
-			<button class="kt-header-mobile__toggler kt-header-mobile__toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
+			<button class="kt-header-mobile__toggler kt-header-mobile__toggler--left"
+				id="kt_aside_mobile_toggler"><span></span></button>
 			<!-- <button class="kt-header-mobile__toggler" id="kt_header_mobile_toggler"><span></span></button> -->
-			<button class="kt-header-mobile__topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+			<button class="kt-header-mobile__topbar-toggler" id="kt_header_mobile_topbar_toggler"><i
+					class="flaticon-more"></i></button>
 		</div>
 	</div>
 
@@ -94,7 +98,11 @@
 				</div>
 
 				<?php $this->load->view('layouts/footer'); ?>
-
+				<?php if (isset($modals)):
+					foreach ($modals as $modal) :
+						$this->load->view($modal);
+					endforeach;
+				endif; ?>
 			</div>
 		</div>
 	</div>
@@ -147,18 +155,21 @@
 	<script src="<?= base_url(); ?>assets_backend/js/scripts.bundle.js" type="text/javascript"></script>
 
 	<!--begin::Page Vendors -->
-	<script src="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/plugins/custom/fullcalendar/fullcalendar.bundle.js"
+		type="text/javascript"></script>
 	<!--end::Page Vendors -->
 	<!--begin::Page Snippets -->
 	<script src="<?= base_url(); ?>assets_backend/plugins/custom/flot/flot.bundle.js" type="text/javascript"></script>
 	<script src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/dashboard.js" type="text/javascript"></script>
-	<script src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/form-submit-general.js" type="text/javascript"></script>
+	<script src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/form-submit-general.js" type="text/javascript">
+	</script>
 	<!--end::Page Snippets -->
 
 	<!--begin::Custom Page -->
 	<?php if (isset($scripts)) : ?>
 		<?php foreach ($scripts as $script) : ?>
-			<script type="text/javascript" src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/<?= $script ?>.js"></script>
+			<script type="text/javascript" src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/<?= $script ?>.js">
+			</script>
 		<?php endforeach; ?>
 	<?php endif; ?>
 	<!--end::Custom Page -->

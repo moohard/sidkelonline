@@ -23,6 +23,7 @@ class d_registrasi extends MY_Controller
     {
         $data               = $this->get_master($this->_path_page . $this->_page_index);
         $data['scripts']    = ['d_registrasi'];
+        $data['modals']     = [$this->_path_page.'modal_view'];
         $data['create_url'] = site_url($this->_controller_name . '/create') . '/';
         $data['update_url'] = site_url($this->_controller_name . '/update') . '/';
         $data['delete_url'] = site_url($this->_controller_name . '/delete') . '/';

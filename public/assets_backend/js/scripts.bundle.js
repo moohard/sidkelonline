@@ -25,7 +25,7 @@ var KTApp = function() {
 
     var initTooltips = function() {
         // init bootstrap tooltips
-        $('[data-toggle="kt-tooltip"]').each(function() {
+        $('.kt-tooltip').each(function() {
             initTooltip($(this));
         });
     }
