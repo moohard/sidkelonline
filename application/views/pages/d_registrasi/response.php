@@ -24,7 +24,6 @@
                       <th>Umur</th>
                       <th>Pekerjaan</th>
                       <th>Jenis Perkara</th>
-                      <th>Upload Foto Identitas</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -34,32 +33,31 @@
                       $i = 1;
                       foreach ($datas as $row) {
                         $key = $this->encryptions->encode($row->registrasi_id, $this->config->item('encryption_key'));
-                    ?>
-                    <tr>
-                      <th scope="row"><?= $i++ ?></th>
-                      <td><?= $row->registrasi_alamat ?></td>
-                      <td><?= $row->registrasi_identitas ?></td>
-                      <td><?= $row->registrasi_nama ?></td>
-                      <td><?= $row->registrasi_tgl_lahir ?></td>
-                      <td><?= $row->registrasi_pekerjaan ?></td>
-                      <td><?= $row->registrasi_jenis_perkara ?></td>
-                      <td><?= $row->registrasi_file ?></td>
-                      <td>
-                        <a href="<?= $update_url . $key ?>" title="Update"
-                          class="btn btn-sm btn-outline-primary btn-elevate btn-circle btn-icon">
-                          <span>
-                            <i class="fa fa-pencil-alt"></i>
-                          </span>
-                        </a>
-                        <a href="<?= $delete_url . $key ?>" title="Delete" id='ts_remove_row<?= $i; ?>'
-                          class="ts_remove_row btn btn-sm btn-outline-danger btn-elevate btn-circle btn-icon">
-                          <span>
-                            <i class="fa fa-trash-alt"></i>
-                          </span>
-                        </a>
-                      </td>
-                    </tr>
-                    <?php
+                        ?>
+                        <tr>
+                          <th scope="row"><?= $i++ ?></th>
+                          <td><?= $row->registrasi_alamat ?></td>
+                          <td><?= $row->registrasi_identitas ?></td>
+                          <td><?= $row->registrasi_nama ?></td>
+                          <td><?= $row->registrasi_tgl_lahir ?></td>
+                          <td><?= $row->registrasi_pekerjaan ?></td>
+                          <td><?= $row->registrasi_jenis_perkara ?></td>
+                          <td>
+                            <a href="<?= $view_url . $key ?>" title="view"
+                              class="btn btn-outline-hover-danger btn-icon" data-skin="danger" data-toggle="kt-tooltip" data-placement="top" data-original-title="Brand skin">
+                              <span class="text-danger">
+                                <i class="fa fa-file-pdf"></i>
+                              </span>
+                            </a>
+                            <a href="<?= $validasi_url . $key ?>" title="validasi"
+                              class="btn btn-outline-hover-info btn-icon">
+                              <span class="text-info">
+                                <i class="fa fa-check-square"></i>
+                              </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <?php
                       }
                     }
                     ?>

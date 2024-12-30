@@ -3,7 +3,7 @@
   <div class="kt-portlet__head">
     <div class="kt-portlet__head-label">
       <h3 class="kt-portlet__head-title">
-        Select2 Examples
+        Pendataan Pendaftaran Sidang Keliling dan Prodeo
       </h3>
     </div>
   </div>

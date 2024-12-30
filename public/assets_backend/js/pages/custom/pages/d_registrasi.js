@@ -24,6 +24,7 @@ var KTLoginGeneral = (function () {
           try {
             var res = $.parseJSON(data);
             $("#response").fadeIn("slow").html(res.response);
+            KTApp.initTooltips();
           } catch (err) {
             $("#response").fadeIn("slow").html(data);
           }
@@ -37,7 +38,6 @@ var KTLoginGeneral = (function () {
     $("#form_submit").validate({
       rules: {},
       submitHandler: function (e) {
-        console.log(e);
         handleSubmit(e);
         return false;
       },

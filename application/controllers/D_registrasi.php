@@ -39,6 +39,9 @@ class d_registrasi extends MY_Controller
                 $jenis_pendaftaran = $this->input->post('jenis_pendaftaran');
                 $data['datas'] = $this->{$this->_model_name}->get_ref_table('d_registrasi', '', ['registrasi_jenis_pendaftaran' => $jenis_pendaftaran]);
                 $data['page_judul'] = "Data Pendaftaran";
+                $data['view_url'] = site_url($this->_controller_name . '/view') . '/';
+                $data['validasi_url'] = site_url($this->_controller_name . '/validasi') . '/';
+                $data['delete_url'] = site_url($this->_controller_name . '/delete') . '/';
                 echo json_encode(
                     [
                         'status' => 'success',
@@ -51,7 +54,7 @@ class d_registrasi extends MY_Controller
         }
     }
 
-    public function create()
+    public function validasi()
     {
         $data                = $this->get_master($this->_path_page . 'form');
         $data['scripts']     = [];
@@ -63,7 +66,7 @@ class d_registrasi extends MY_Controller
         $this->load->view($this->_template, $data);
     }
 
-    public function update()
+    public function view()
     {
         $data                = $this->get_master($this->_path_page . 'form');
         $keyS                = $this->encryptions->decode($this->uri->segment(3), $this->config->item('encryption_key'));
