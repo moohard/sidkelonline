@@ -19,17 +19,16 @@
               data-placeholder="Pilih Jenis Perkara" data-allow-clear="true" name="registrasi_jenis_perkara">
               <option value=""></option>
               <?php
-                            foreach ($jenis_perkara as $r):
-                                echo '<option value="' . $r . '">' . $r . '</option>';
-                            endforeach;
-                            ?>
+              foreach ($jenis_perkara as $r):
+                echo '<option value="' . $r . '">' . $r . '</option>';
+              endforeach;
+              ?>
             </select>
           </div>
           <div class="fv-row mb-5">
             <label class="required form-label">Identitas Pendaftar (Nomor KTP)</label>
             <input type="text" class="form-control inputan" name="registrasi_identitas"
-              placeholder="Identitas Pendaftar (Nomor KTP)" aria-describedby="Identitas Pendaftar (Nomor KTP)"
-              value="1234561234561234">
+              placeholder="Identitas Pendaftar (Nomor KTP)" aria-describedby="Identitas Pendaftar (Nomor KTP)" value="">
           </div>
           <div class="fv-row mb-5">
             <label class="required form-label">Nama</label>
