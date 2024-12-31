@@ -32,10 +32,21 @@ class Model_d_registrasi extends Model_Master
         else
             return false;
     }
+    function get_kelurahan_by_id($id)
+    {
+        $this->db->select('villageId id, villageNama text');
+        $this->db->from('r_villages');
+        $this->db->where($id);
+        $qr = $this->db->get();
+        if ($qr->num_rows() > 1)
+            return $qr->result();
+        else
+            return false;
+    }
     function get_enum_values($table, $field)
     {
-        $type = ($this->db->query("SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'"))->row()->Type;        
-        
+        $type = ($this->db->query("SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'"))->row()->Type;
+
         preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
         $enum = explode("','", $matches[1]);
         return $enum;

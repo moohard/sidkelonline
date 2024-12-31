@@ -7,6 +7,13 @@ var KTCreateApp = (function () {
     const form = document.getElementById("form_registrasi");
     var validator = FormValidation.formValidation(form, {
       fields: {
+        kecamatan: {
+          validators: {
+            notEmpty: {
+              message: "Silakan Dipilih!!",
+            },
+          },
+        },
         registrasi_identitas: {
           validators: {
             notEmpty: {
@@ -94,6 +101,23 @@ var KTCreateApp = (function () {
       "change",
       function () {
         validator.revalidateField("registrasi_jenis_perkara");
+      }
+    );
+    $(form.querySelectorAll('input[name="kecamatan"]')).on(
+      "change",
+      function () {
+        $('[name="registrasi_alamat"]').html("");
+        $.ajax({
+          url: "frontend/get_kelurahan",
+          data: { district_id: this.value },
+          method: "POST",
+          success: function (data) {
+            const eR = JSON.parse(data);
+            $('[name="registrasi_alamat"]').select2({
+              data: eR,
+            })
+          },
+        }).done(function (msg) {});
       }
     );
     // Submit button handler

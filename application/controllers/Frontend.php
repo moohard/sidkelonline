@@ -13,6 +13,12 @@ class Frontend extends CI_Controller
 		$this->load->model($this->_model_name, '', true);
 	}
 
+	public function get_kelurahan()
+	{
+		$kelurahan = $this->{$this->_model_name}->get_kelurahan_by_id(array('district_id' => $this->input->post('district_id')));
+		echo json_encode($kelurahan);
+	}
+
 	public function index()
 	{
 		$data['r_villages']    = $this->{$this->_model_name}->get_ref_table('r_villages', '', array('district_id' => '640903'));
