@@ -19,10 +19,8 @@
                                 <label
                                     class="btn btn-outline btn-outline-dashed btn-active-light-info d-flex flex-stack text-start p-6 mb-5">
                                     <div class="d-flex align-items-center me-2">
-                                        <div
-                                            class="form-check form-check-custom form-check-solid form-check-primary me-6">
-                                            <input class="form-check-input" type="radio" name="kecamatan"
-                                                value="640903" />
+                                        <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
+                                            <input class="form-check-input" type="radio" name="kecamatan" value="640903" />
                                         </div>
                                         <div class="flex-grow-1">
                                             <h2 class="d-flex align-items-center fs-3 fw-bold flex-wrap">
@@ -36,10 +34,8 @@
                                 <label
                                     class="btn btn-outline btn-outline-dashed btn-active-light-info d-flex flex-stack text-start p-6 mb-5 ">
                                     <div class="d-flex align-items-center me-2">
-                                        <div
-                                            class="form-check form-check-custom form-check-solid form-check-primary me-6">
-                                            <input class="form-check-input" type="radio" name="kecamatan"
-                                                value="640904" />
+                                        <div class="form-check form-check-custom form-check-solid form-check-primary me-6">
+                                            <input class="form-check-input" type="radio" name="kecamatan" value="640904" />
                                         </div>
                                         <div class="flex-grow-1">
                                             <h2 class="d-flex align-items-center fs-3 fw-bold flex-wrap">
@@ -53,16 +49,14 @@
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Alamat</label>
-                        <select class="form-select inputan" data-control="select2"
-                            data-dropdown-parent="#kt_modal_create_app" data-placeholder="Pilih Kelurahan / Desa"
-                            data-allow-clear="true" name="registrasi_alamat">
+                        <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_create_app"
+                            data-placeholder="Pilih Kelurahan / Desa" data-allow-clear="true" name="registrasi_alamat">
                         </select>
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Jenis Perkara</label>
-                        <select class="form-select inputan" data-control="select2"
-                            data-dropdown-parent="#kt_modal_create_app" data-placeholder="Pilih Jenis Perkara"
-                            data-allow-clear="true" name="registrasi_jenis_perkara">
+                        <select class="form-select inputan" data-control="select2" data-dropdown-parent="#kt_modal_create_app"
+                            data-placeholder="Pilih Jenis Perkara" data-allow-clear="true" name="registrasi_jenis_perkara">
                             <option value=""></option>
                             <?php
                             foreach ($jenis_perkara as $r):
@@ -74,23 +68,22 @@
                     <div class="fv-row mb-5">
                         <label class="required form-label">Identitas Pendaftar (Nomor KTP)</label>
                         <input type="text" class="form-control inputan" name="registrasi_identitas"
-                            placeholder="Identitas Pendaftar (Nomor KTP)"
-                            aria-describedby="Identitas Pendaftar (Nomor KTP)" value="1234561234561234">
+                            placeholder="Identitas Pendaftar (Nomor KTP)" aria-describedby="Identitas Pendaftar (Nomor KTP)" value="">
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Nama</label>
                         <input type="text" class="form-control inputan" name="registrasi_nama" placeholder="Nama"
-                            aria-describedby="Nama" value="muhar">
+                            aria-describedby="Nama" value="">
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Tanggal Lahir</label>
-                        <input type="text" class="form-control inputan" name="registrasi_tgl_lahir"
-                            placeholder="Tanggal Lahir" aria-describedby="Tanggal Lahir" value="1991-07-13" readonly>
+                        <input type="text" class="form-control inputan" name="registrasi_tgl_lahir" placeholder="Tanggal Lahir"
+                            aria-describedby="Tanggal Lahir" value="" readonly>
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required form-label">Pekerjaan</label>
-                        <input type="text" class="form-control inputan" name="registrasi_pekerjaan"
-                            placeholder="Pekerjaan" aria-describedby="Pekerjaan" value="PNS">
+                        <input type="text" class="form-control inputan" name="registrasi_pekerjaan" placeholder="Pekerjaan"
+                            aria-describedby="Pekerjaan" value="">
                     </div>
                     <div class="fv-row mb-5">
                         <label class="required d-block fw-semibold fs-6 mb-5">Upload Swafoto (Upload KTP beserta
@@ -100,8 +93,7 @@
                             <div class="image-input-wrapper w-125px h-125px"></div>
                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
                                 data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Ganti Foto">
-                                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span
-                                        class="path2"></span></i>
+                                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span class="path2"></span></i>
                                 <input type="file" name="registrasi_file" accept=".png, .jpg, .jpeg" />
                                 <input type="hidden" name="registrasi_file_remove" />
                             </label>

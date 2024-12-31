@@ -34,17 +34,17 @@
           <div class="fv-row mb-5">
             <label class="required form-label">Nama</label>
             <input type="text" class="form-control inputan" name="registrasi_nama" placeholder="Nama"
-              aria-describedby="Nama" value="muhar">
+              aria-describedby="Nama" value="">
           </div>
           <div class="fv-row mb-5">
             <label class="required form-label">Tanggal Lahir</label>
             <input type="text" class="form-control inputan" name="registrasi_tgl_lahir" placeholder="Tanggal Lahir"
-              aria-describedby="Tanggal Lahir" value="1991-07-13" readonly>
+              aria-describedby="Tanggal Lahir" value="" readonly>
           </div>
           <div class="fv-row mb-10">
             <label class="required form-label">Pekerjaan</label>
             <input type="text" class="form-control inputan" name="registrasi_pekerjaan" placeholder="Pekerjaan"
-              aria-describedby="Pekerjaan" value="PNS">
+              aria-describedby="Pekerjaan" value="">
           </div>
           <div class="fv-row mb-5">
             <div class="form-check mb-2">
