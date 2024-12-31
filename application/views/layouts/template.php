@@ -16,7 +16,7 @@
 			google: {
 				"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
 			},
-			active: function() {
+			active: function () {
 				sessionStorage.fonts = true;
 			}
 		});
@@ -98,11 +98,7 @@
 				</div>
 
 				<?php $this->load->view('layouts/footer'); ?>
-				<?php if (isset($modals)):
-					foreach ($modals as $modal) :
-						$this->load->view($modal);
-					endforeach;
-				endif; ?>
+
 			</div>
 		</div>
 	</div>
@@ -166,8 +162,8 @@
 	<!--end::Page Snippets -->
 
 	<!--begin::Custom Page -->
-	<?php if (isset($scripts)) : ?>
-		<?php foreach ($scripts as $script) : ?>
+	<?php if (isset($scripts)): ?>
+		<?php foreach ($scripts as $script): ?>
 			<script type="text/javascript" src="<?= base_url(); ?>assets_backend/js/pages/custom/pages/<?= $script ?>.js">
 			</script>
 		<?php endforeach; ?>

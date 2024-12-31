@@ -1,7 +1,6 @@
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
   <div class="row">
     <div class="col-md-12">
-      <div id="response"></div>
       <div class="kt-portlet">
         <div class="kt-portlet__head">
           <div class="kt-portlet__head-label">
@@ -32,30 +31,30 @@
                       $i = 1;
                       foreach ($datas as $row) {
                         $key = $this->encryptions->encode($row->registrasi_id, $this->config->item('encryption_key'));
-                    ?>
-                    <tr>
-                      <th scope="row"><?= $i++ ?></th>
-                      <td><?= $row->registrasi_identitas ?></td>
-                      <td><?= $row->registrasi_nama ?></td>
-                      <td><?= $row->registrasi_tgl_lahir ?></td>
-                      <td><?= $row->registrasi_pekerjaan ?></td>
-                      <td><?= $row->registrasi_jenis_perkara ?></td>
-                      <td>
-                        <a href="#" class="kt-tooltip btn btn-outline-hover-danger btn-icon" data-placement="top"
-                          title="View" data-toggle="modal" data-target="#kt_modal_4_2">
-                          <span class="text-danger">
-                            <i class="fa fa-file-pdf"></i>
-                          </span>
-                        </a>
-                        <a href="<?= $validasi_url . $key ?>" data-placement="top" data-skin="brand" title="Validasi"
-                          class="kt-tooltip btn btn-outline-hover-info btn-icon">
-                          <span class="text-info">
-                            <i class="fa fa-check-square"></i>
-                          </span>
-                        </a>
-                      </td>
-                    </tr>
-                    <?php
+                        ?>
+                        <tr>
+                          <th scope="row"><?= $i++ ?></th>
+                          <td><?= $row->registrasi_identitas ?></td>
+                          <td><?= $row->registrasi_nama ?></td>
+                          <td><?= $row->registrasi_tgl_lahir ?></td>
+                          <td><?= $row->registrasi_pekerjaan ?></td>
+                          <td><?= $row->registrasi_jenis_perkara ?></td>
+                          <td>
+                            <a href="<?=$view_url.$key?>" class="kt-tooltip btn btn-outline-hover-danger btn-icon" data-placement="top"
+                              title="View" data-toggle="modal" data-target="#kt_modal_4_2" id="btn_view">
+                              <span class="text-danger">
+                                <i class="fa fa-file-pdf"></i>
+                              </span>
+                            </a>
+                            <a href="<?= $validasi_url . $key ?>" data-placement="top" data-skin="brand" title="Validasi"
+                              class="kt-tooltip btn btn-outline-hover-info btn-icon" id="btn_validasi">
+                              <span class="text-info">
+                                <i class="fa fa-check-square"></i>
+                              </span>
+                            </a>
+                          </td>
+                        </tr>
+                        <?php
                       }
                     }
                     ?>
@@ -69,3 +68,8 @@
     </div>
   </div>
 </div>
+<?php if (isset($modals)):
+  foreach ($modals as $modal):
+    $this->load->view($modal);
+  endforeach;
+endif; ?>

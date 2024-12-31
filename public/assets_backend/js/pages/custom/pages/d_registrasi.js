@@ -33,6 +33,7 @@ var KTLoginGeneral = (function () {
           button.text(button_text);
         },
       }).done(function (msg) {
+        handleAction();
         KTApp.initTooltips();
       });
     };
@@ -51,6 +52,19 @@ var KTLoginGeneral = (function () {
         handleSubmit(e);
         return false;
       },
+    });
+  };
+  let handleAction = () => {
+    $("#btn_view").on("click", function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: this.href,
+        success: function (data) {
+          const eR = $.parseJSON(data);
+          $("#iframe-content").html(eR.response);
+        },
+      });
     });
   };
   return {
