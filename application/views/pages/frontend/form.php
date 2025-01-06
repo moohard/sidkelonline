@@ -14,6 +14,7 @@
                 <form action="<?= $simpan_url ?>" method='POST' enctype="multipart/form-data" id=form_registrasi>
                     <div class="fv-row mb-5">
                         <label class="required form-label" for="kecamatan">Sidang Keliling (Kecamatan)</label>
+                        <input type="hidden" value="SIDKEL" name="registrasi_jenis_pendaftaran">
                         <div data-kt-buttons="true" class="row">
                             <div class="col-md-6">
                                 <label

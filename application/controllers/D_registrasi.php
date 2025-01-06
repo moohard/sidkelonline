@@ -38,7 +38,7 @@ class d_registrasi extends MY_Controller
         if ($this->form_validation->run()) {
             if (IS_AJAX) {
                 $jenis_pendaftaran    = $this->input->post('jenis_pendaftaran');
-                $data['datas']        = $this->{$this->_model_name}->get_ref_table('d_registrasi', '', ['registrasi_jenis_pendaftaran' => $jenis_pendaftaran]);
+                $data['datas']        = $this->{$this->_model_name}->get_ref_table('d_registrasi', '', ['registrasi_jenis_pendaftaran' => $jenis_pendaftaran]);                
                 $data['page_judul']   = "Data Pendaftaran";
                 $data['modals']       = [$this->_path_page . 'modal_view'];
                 $data['view_url']     = site_url($this->_controller_name . '/view') . '/';
